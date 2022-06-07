@@ -1,5 +1,6 @@
 import React from "react";
 import {Nav} from './nav/Nav';
+import {Link} from 'react-router-dom'
 import "./header.scss";
 
 
@@ -18,7 +19,8 @@ export const Header = ({
 
     return (
     <header className={`header ${checkStyle}`}>
-        <p className='logo'>forum</p>
+       
+        <Link to='/'> <p className='logo'>forum</p> </Link>
         <Nav/>
     </header>
     );
