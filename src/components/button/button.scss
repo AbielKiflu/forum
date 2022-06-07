@@ -1,17 +1,24 @@
+@import "../../variables/variables";
+
 * {
     box-sizing: border-box;
 }
 
-$primary:#1DA1F2;
-$white:#FFFF;
+
 
 .btn{
     padding:0.5rem;
+    border-radius: 0.2rem;
+    border-color: transparent;
 }
 
 .btn-primary{
     background-color: $primary;
-    color: $white;
-    border-radius: 0.2rem;
-    border-color: transparent;
+    color: $light;
+}
+
+.btn-dark{
+    background-color: $dark;
+    color: $light;
+
 }

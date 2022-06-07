@@ -1,5 +1,5 @@
 import React from "react";
-import "./button.scss";
+import "./textfield.scss";
 
 
 const STYLEBACKGROUND=[
@@ -10,7 +10,7 @@ const STYLEBACKGROUND=[
  
 
 
-export const Button = ({
+export const Textfield = ({
     children,
     type,
     onclick,
@@ -22,9 +22,8 @@ export const Button = ({
 
 
     return (
-        <button className={`btn  ${checkStyle}`} onClick={onclick} type={type} >
-            {children}
-        </button>
+        <input className={`textfield  ${checkStyle}`} onClick={onclick} type={type} />
+ 
     );
 
 }
