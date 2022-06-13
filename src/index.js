@@ -6,11 +6,10 @@ import {Header} from './components/header/Header';
 import Login from './layouts/Login';
 import Home from './layouts/Home'
 import Register from './layouts/Register';
-
+import Boards from './layouts/Boards';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
    <Router>
       <Header/>
       <main>
@@ -18,10 +17,10 @@ root.render(
           <Route path="/" element={ <Home/>}/>
           <Route path="/login" element={ <Login/>}/>
           <Route path="/register"  element={ <Register/> }/>
+          <Route path="/boards"  element={ <Boards/> }/>
       </Routes>
       </main>
    </Router>
-  </React.StrictMode>
 );
 
  

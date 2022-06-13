@@ -1,7 +1,66 @@
 import React from 'react';
-
-function Login (){
-	return <h1>Welcome to the world of Forum Login!</h1>
+import axios from 'axios';
+const Login = (props) => {
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    axios.defaults.withCredentials = true
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios({
+            method:'get',
+            url:'http://localhost:8000/sanctum/csrf-cookie',            
+            headers:{
+                'Access-Control-Allow-Origin': '*', 
+                withCredentials:true,
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            axios({
+                method:'post',
+                url:'http://localhost:8000/api/login',
+                params:{
+                    'email':email,
+                    'password':password
+                },
+                
+                headers:{
+                    'Access-Control-Allow-Origin': '*', 
+                    withCredentials:true,
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(function(response){
+                console.log(response.data);
+            })
+            .catch(function(error){
+                console.log("error: " + error);
+            })
+        });
+    }
+    return (
+        <div>
+            <h1>Login</h1>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    required
+                />
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    required
+                />
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    );
 }
-
 export default Login;
