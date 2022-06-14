@@ -1,74 +1,66 @@
-import React,{useState,useEffect } from 'react';
-import "./login.scss";
-import axios from "axios";
-import {Button} from "../components/button/Button"
-
-//import {styled}  from 'styled-components';
-
-function Login (){
-	const [message,setMessage] =useState('');
-	const [user, setUser]=useState({
-		"email":"",
-		"password":""
-	});
-	 
-	axios.defaults.withCredentials=true;
-	axios.defaults.baseURL='http://127.0.0.1:8001';
-
-	function login(credentials){
-		const data = {
-			method: 'POST',
-			mode: 'cors',
-			headers: {
-				"Content-Type": "application/json",
-				"Accept": "application/json, text-plain, */*",
-				"X-Requested-With": "XMLHttpRequest",
-				"X-CSRF-TOKEN": "dssrgergerg"
-			},
-			body:user
-		};
-
-
-		axios.get('/sanctum/csrf-cookie').then(response => {
-			console.log(response);
-		});
-
-		fetch("http://127.0.0.1:8001/api/login",data)
-		.then(response => response.json())
-		.then((response) =>{
-		console.log(response);
-			 
-		})
-
-	
-	}
-
-	function hundler(e){
-		e.preventDefault();
-		const credentials={
-			"email":"",
-			"password":""
-		}
-		login(credentials);
-	}
- 
-	function handlerOnChange(e){
-			setUser({...user,[e.target.name]:e.target.value,[e.target.name]:e.target.value});
-			}
-
-	return (
-		<>
-	 		<div className="wrapper">
-			 	<form onSubmit={hundler}>
-				 <h3>Login</h3>
-				 <input type="text" name="email" placeholder="Email" onChange={handlerOnChange}/>
-				 <input type="password" name="password" placeholder="Password"  onChange={handlerOnChange}/>
-				 <Button>Login</Button>
-				 </form>
-			</div>
-			  
-		</>
-	)
+import React from 'react';
+import axios from 'axios';
+const Login = (props) => {
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    axios.defaults.withCredentials = true
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios({
+            method:'get',
+            url:'http://localhost:8001/sanctum/csrf-cookie',            
+            headers:{
+                'Access-Control-Allow-Origin': '*', 
+                withCredentials:true,
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            axios({
+                method:'post',
+                url:'http://localhost:8001/api/login',
+                params:{
+                    'email':email,
+                    'password':password
+                },
+                
+                headers:{
+                    'Access-Control-Allow-Origin': '*', 
+                    withCredentials:true,
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(function(response){
+                console.log(response.data);
+            })
+            .catch(function(error){
+                console.log("error: " + error);
+            })
+        });
+    }
+    return (
+        <div>
+            <h1>Login</h1>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    required
+                />
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    required
+                />
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    );
 }
-
 export default Login;
