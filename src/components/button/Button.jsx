@@ -13,7 +13,7 @@ const STYLEBACKGROUND=[
 export const Button = ({
     children,
     type,
-    onclick,
+    onClick,
     buttonStyle
 
 })=> {
@@ -22,7 +22,7 @@ export const Button = ({
 
 
     return (
-        <button className={`btn  ${checkStyle}`} onClick={onclick} type={type} >
+        <button className={`btn  ${checkStyle}`} onClick={onClick} type={type} >
             {children}
         </button>
     );
