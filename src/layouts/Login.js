@@ -32,22 +32,21 @@ const Login = (props) => {
             })
             .then(function(response){
                 console.log(response.data);
-            //USER?
-            //     axios({
-            //         method:'get',
-            //         url:'http://localhost:8000/api/user',            
-            //         headers:{
-            //             'Access-Control-Allow-Origin': '*', 
-            //             withCredentials:true,
-            //             'Content-Type': 'application/json'
-            //         }
-            //     })
-            //     .then(function(response){
-            //         console.log(response.data);
-            //     })
-            //     .catch(function(err){
-            //         console.log("error:" + err);
-            //     })
+                                axios({
+                    method:'get',
+                    url:'http://localhost:8000/api/user',
+                    headers:{
+                        'Access-Control-Allow-Origin': '*', 
+                        withCredentials:true,
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(function(response){
+                    console.log(response.data);
+                })
+                .catch(function(err){
+                    console.log("error:" + err);
+                })
             })
             .catch(function(error){
                 console.log("error: " + error);

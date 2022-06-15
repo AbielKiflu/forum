@@ -10,7 +10,7 @@ const STYLEBACKGROUND=[
  
 
 
-export const Textfield = ({
+export const TextField = ({
     children,
     type,
     onclick,

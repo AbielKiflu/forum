@@ -6,7 +6,7 @@ const Boards = () => {
     React.useEffect(() => {
         axios({
             method:'get',
-            url:'http://localhost:8000/api/boards',
+            url:'http://localhost:8001/api/boards',
             headers:{
                 'Access-Control-Allow-Origin': '*', 
                 withCredentials:true,
@@ -14,6 +14,7 @@ const Boards = () => {
             }
         })
         .then(response => {
+        console.log(response.data)
           setBoards(response.data)
         })
         .catch(error => console.error(error));    

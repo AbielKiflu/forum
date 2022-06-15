@@ -15,21 +15,18 @@ export const Nav = ({
     onclick,
 
 })=> {
-
-
-
+ 
+        function  handleClick(e) {
+            document.querySelector('#nav').classList.toggle('navShow');
+        }
 
     return (
          <>
-            <span className="MenuOpen">
-                <FaBars/>
-            </span>
-            <nav className={`nav`}>
-            <span className="MenuClose">
-                <FaTimes/>
-            </span>
+            <span className="MenuOpen" onClick={handleClick}> <FaBars/> </span>
+            <nav className='nav' id="nav">
                 <Link to='/login'>Login</Link>
                 <Link to='/register'>Register</Link>
+                <Link to='/logout'>Logout</Link>
             </nav>
          </>
 
