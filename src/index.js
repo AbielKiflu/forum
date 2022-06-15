@@ -23,6 +23,8 @@ root.render(
           <Route path="/user"  element={ <User/> }/>
           <Route path="/logout"  element={ <Logout/> }/>
           <Route path="/boards"  element={ <Boards/> }/>
+          <Route path="/user" element={ <User/> }/>
+          <Route path="/logout" element={ <Logout/> }/>
       </Routes>
       </main>
    </Router>

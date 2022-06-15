@@ -6,7 +6,7 @@ const User = () => {
     React.useEffect(() => {
         axios({
             method:'get',
-            url:'http://localhost:8001/api/user',
+            url:'http://localhost:8000/api/user',
             headers:{
                 'Access-Control-Allow-Origin': '*', 
                 withCredentials:true,

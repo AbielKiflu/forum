@@ -8,7 +8,7 @@ const Login = (props) => {
         e.preventDefault();
         axios({
             method:'get',
-            url:'http://localhost:8001/sanctum/csrf-cookie',            
+            url:'http://localhost:8000/sanctum/csrf-cookie',            
             headers:{
                 'Access-Control-Allow-Origin': '*', 
                 withCredentials:true,
@@ -18,7 +18,7 @@ const Login = (props) => {
         .then(response => {
             axios({
                 method:'post',
-                url:'http://localhost:8001/api/login',
+                url:'http://localhost:8000/api/login',
                 params:{
                     'email':email,
                     'password':password
@@ -34,7 +34,7 @@ const Login = (props) => {
                 console.log(response.data);
                                 axios({
                     method:'get',
-                    url:'http://localhost:8001/api/user',
+                    url:'http://localhost:8000/api/user',
                     headers:{
                         'Access-Control-Allow-Origin': '*', 
                         withCredentials:true,
