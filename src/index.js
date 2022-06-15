@@ -8,6 +8,7 @@ import Home from './layouts/Home'
 import Register from './layouts/Register';
 import Boards from './layouts/Boards';
 import User from './layouts/User';
+import Logout from './layouts/Logout';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,7 @@ root.render(
           <Route path="/register"  element={ <Register/> }/>
           <Route path="/boards"  element={ <Boards/> }/>
           <Route path="/user" element={ <User/> }/>
+          <Route path="/logout" element={ <Logout/> }/>
       </Routes>
       </main>
    </Router>
