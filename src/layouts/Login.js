@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-const Login = (props) => {
+const Login = ({isLoggedIn,setIsLoggedIn}) => {
     const navigate=useNavigate();
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
@@ -33,8 +33,7 @@ const Login = (props) => {
                 }
             })
             .then(function(response){
-                console.log(response.data);
-                                axios({
+                axios({
                     method:'get',
                     url:'http://localhost:8000/api/user',
                     headers:{
@@ -44,10 +43,10 @@ const Login = (props) => {
                     }
                 })
                 .then(function(response){
-                   // console.log(response.data);
                     navigate('/boards');
                 })
                 .catch(function(err){
+                    
                     console.log("error:" + err);
                 })
             })
@@ -55,6 +54,7 @@ const Login = (props) => {
                 console.log("error: " + error);
             })
         });
+       
     }
     return (
         <div>

@@ -14,9 +14,7 @@ const Boards = () => {
             }
         })
         .then(response => {
-        console.log(response.data)
-          setBoards(response.data)
-          console.log(document.cookie);
+            setBoards(response.data)
         })
         .catch(error => console.error(error));    
 
