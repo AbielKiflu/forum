@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 const Logout = (props) => {
-  const [user, setUser] = React.useState([]);
+const [user, setUser] = React.useState([]);
+
   React.useEffect(() => {
       axios({
           method:'get',

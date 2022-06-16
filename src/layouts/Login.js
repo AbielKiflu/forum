@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const Login = (props) => {
+    const navigate=useNavigate();
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     axios.defaults.withCredentials = true
@@ -42,7 +44,8 @@ const Login = (props) => {
                     }
                 })
                 .then(function(response){
-                    console.log(response.data);
+                   // console.log(response.data);
+                    navigate('/boards');
                 })
                 .catch(function(err){
                     console.log("error:" + err);
