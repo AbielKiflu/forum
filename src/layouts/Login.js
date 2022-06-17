@@ -33,6 +33,9 @@ const Login = ({isLoggedIn,setIsLoggedIn}) => {
                 }
             })
             .then(function(response){
+                setIsLoggedIn(true);
+                let cookies = Object.fromEntries(document.cookie.split('; ').map(v=>v.split(/=(.*)/s).map(decodeURIComponent)))
+                console.log(cookies);
                 axios({
                     method:'get',
                     url:'http://localhost:8000/api/user',

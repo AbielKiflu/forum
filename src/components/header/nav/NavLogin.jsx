@@ -9,7 +9,7 @@ import "./nav.scss";
  
 
 
-export const Nav = ({
+export const NavLogin = ({
     children,
     type,
     onclick,
@@ -26,8 +26,8 @@ export const Nav = ({
          <>
             <span className="MenuOpen" onClick={handleClick}> <FaBars/></span>
             <nav className='nav' id="nav">
-                <Link to='/login'>Login</Link>
-                <Link to='/register'>Register</Link>
+                <Link to='/'>Home</Link>
+                <Link to='/Boards'>Boards</Link>
                 <Link to='/logout'>Logout</Link>
             </nav>
          </>

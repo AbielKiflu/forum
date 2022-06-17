@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-const Logout = (props) => {
+const Logout = ({isLoggedIn,setIsLoggedIn}) => {
 const [user, setUser] = React.useState([]);
 
   React.useEffect(() => {
@@ -14,7 +14,8 @@ const [user, setUser] = React.useState([]);
           }
       })
       .then(response => {
-        setUser(response.data)
+        setUser(response.data);
+        setIsLoggedIn(false);
       })
       .catch(error => console.error(error));    
 

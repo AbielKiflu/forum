@@ -10,19 +10,18 @@ import User from './layouts/User';
 import Logout from './layouts/Logout';
 const App = () =>{
   const [isLoggedIn,setIsLoggedIn] = React.useState(false);
+  console.log()
    return (
       <Router>
-      <Header/> 
+      <Header isLoggedIn={isLoggedIn}/> 
       <main>
       <Routes>
           <Route path="/" element={ <Home/>}/>
           <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>
           <Route path="/register"  element={ <Register/> }/>
           <Route path="/user"  element={ <User/> }/>
-          <Route path="/logout"  element={ <Logout/> }/>
+          <Route path="/logout"  element={ <Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> }/>
           <Route path="/boards"  element={ <Boards/> }/>
-          <Route path="/user" element={ <User/> }/>
-          <Route path="/logout" element={ <Logout/> }/>
       </Routes>
       </main>
    </Router>
