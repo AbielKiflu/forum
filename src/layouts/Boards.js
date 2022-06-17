@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import BacktoTop from '../components/button/BacktoTop';
 const Boards = () => {
     const [boards, setBoards] = React.useState([]);
     //const [board,setBoard] = React.useState([]);
@@ -41,7 +42,11 @@ const Boards = () => {
         </li>
     );
     return (
-        <ul>{boardsList}</ul>
+        <div>
+            <ul>{boardsList}</ul>
+            <BacktoTop/>
+        </div>
+
     );
 }
 export default Boards;
