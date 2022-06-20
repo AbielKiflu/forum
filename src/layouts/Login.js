@@ -5,17 +5,17 @@ const Login = ({isLoggedIn,setIsLoggedIn}) => {
     const navigate=useNavigate();
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
-    axios.defaults.withCredentials = true
+    axios.defaults.withCredentials = true;
     const handleSubmit = (e) => {
         e.preventDefault();
         axios({
             method:'get',
             url:'http://localhost:8000/sanctum/csrf-cookie',            
-            headers:{
-                'Access-Control-Allow-Origin': '*', 
-                withCredentials:true,
-                'Content-Type': 'application/json'
-            }
+            // headers:{
+            //     'Access-Control-Allow-Origin': '*', 
+            //     withCredentials:true,
+            //     'Content-Type': 'application/json'
+            // }
         })
         .then(response => {
             axios({
@@ -26,24 +26,24 @@ const Login = ({isLoggedIn,setIsLoggedIn}) => {
                     'password':password
                 },
                 
-                headers:{
-                    'Access-Control-Allow-Origin': '*', 
-                    withCredentials:true,
-                    'Content-Type': 'application/json',
-                }
+                // headers:{
+                //     'Access-Control-Allow-Origin': '*', 
+                //     withCredentials:true,
+                //     'Content-Type': 'application/json',
+                // }
             })
             .then(function(response){
                 setIsLoggedIn(true);
-                let cookies = Object.fromEntries(document.cookie.split('; ').map(v=>v.split(/=(.*)/s).map(decodeURIComponent)))
-                console.log(cookies);
+                // let cookies = Object.fromEntries(document.cookie.split('; ').map(v=>v.split(/=(.*)/s).map(decodeURIComponent)))
+                // console.log(cookies);
                 axios({
                     method:'get',
                     url:'http://localhost:8000/api/user',
-                    headers:{
-                        'Access-Control-Allow-Origin': '*', 
-                        withCredentials:true,
-                        'Content-Type': 'application/json'
-                    }
+                    // headers:{
+                    //     'Access-Control-Allow-Origin': '*', 
+                    //     withCredentials:true,
+                    //     'Content-Type': 'application/json'
+                    // }
                 })
                 .then(function(response){
                     navigate('/boards');

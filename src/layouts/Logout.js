@@ -7,11 +7,11 @@ const [user, setUser] = React.useState([]);
       axios({
           method:'get',
           url:'http://localhost:8000/api/logout',
-          headers:{
-              'Access-Control-Allow-Origin': '*', 
-              withCredentials:true,
-              'Content-Type': 'application/json',
-          }
+          // headers:{
+          //     'Access-Control-Allow-Origin': '*', 
+          //     withCredentials:true,
+          //     'Content-Type': 'application/json',
+          // }
       })
       .then(response => {
         setUser(response.data);
@@ -20,10 +20,10 @@ const [user, setUser] = React.useState([]);
       .catch(error => console.error(error));    
 
 
-  }, []);
+  }, [setIsLoggedIn]);
   return (
-    <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
-      <span class="font-medium"> {user.message}</span> 
+    <div className="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+      <span className="font-medium"> {user.message}</span> 
     </div>
 
   );

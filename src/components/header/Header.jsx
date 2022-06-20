@@ -4,10 +4,6 @@ import {NavLogout} from './nav/NavLogout';
 import {Link} from 'react-router-dom'
 import "./header.scss";
 
-
- 
-
-
 export const Header = ({isLoggedIn}) => {
 
     if(isLoggedIn) {

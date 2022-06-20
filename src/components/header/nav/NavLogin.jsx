@@ -4,24 +4,15 @@ import {FaBars} from 'react-icons/fa';
 
 
 import "./nav.scss";
-
- 
- 
-
-
 export const NavLogin = ({
     children,
     type,
     onclick,
 
 })=> {
-
-       
- 
-        function  handleClick(e) {
+    function  handleClick(e) {
             document.querySelector('#nav').classList.toggle('navShow');
         }
-
     return (
          <>
             <span className="MenuOpen" onClick={handleClick}> <FaBars/></span>
@@ -31,8 +22,6 @@ export const NavLogin = ({
                 <Link to='/logout'>Logout</Link>
             </nav>
          </>
-
-
     );
 
 }
