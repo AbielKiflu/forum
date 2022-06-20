@@ -7,11 +7,11 @@ const User = () => {
         axios({
             method:'get',
             url:'http://localhost:8000/api/user',
-            headers:{
-                'Access-Control-Allow-Origin': '*', 
-                withCredentials:true,
-                'Content-Type': 'application/json',
-            }
+            // headers:{
+            //     'Access-Control-Allow-Origin': '*', 
+            //     withCredentials:true,
+            //     'Content-Type': 'application/json',
+            // }
         })
         .then(response => {
           setUser(response.data)
