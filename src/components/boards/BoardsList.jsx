@@ -1,6 +1,5 @@
 import axios from "axios";
 import React from "react";
-import BoardsCard from "./BoardsCard"
 const BoardsList = ({boards})=>{
   const [forums, setForums] = React.useState([]);
   function toggleBoard(board_id){   
